@@ -1,0 +1,119 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Stronger</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <!-- LEFT PANEL -->
+    <div class="brand-panel register-panel">
+
+        <div class="brand-top">
+            TAKE THE FIRST STEP.
+        </div>
+
+        <div class="register-brand-content">
+
+            <h1>
+                Small steps.<br>
+                Stronger you.
+            </h1>
+
+            <p>
+                Build a routine that fits your life.
+                We'll help you make every workout count.
+            </p>
+
+            <h4>YOUR NEXT CHAPTER STARTS HERE.</h4>
+
+        </div>
+
+        <div class="brand-bottom">
+            BUILT ONE DAY AT A TIME.
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT PANEL -->
+    <div class="form-panel">
+
+        <div class="form-content register-content">
+
+            <h2>Build your stronger.</h2>
+
+            <p class="subtitle">
+                Create your account. Your next chapter starts now.
+            </p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Email address</label>
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Create a password"
+                        required
+                    >
+                </div>
+
+                <div class="password-note">
+                    Use at least 8 characters, including numbers.
+                </div>
+
+                <div class="terms">
+                    <input type="checkbox" required>
+                    <span>
+                        I agree to the Terms of Service and Privacy Policy.
+                    </span>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Create account
+                </button>
+
+            </form>
+
+            <p class="switch-page">
+                Already have an account?
+                <a href="{% url 'login' %}">Log in</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

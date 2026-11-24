@@ -1,0 +1,110 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Stronger</title>
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+</head>
+<body>
+
+<div class="auth-container">
+
+    <!-- LEFT PANEL -->
+    <div class="brand-panel login-panel">
+
+        <div class="brand-top">
+            YOUR NEXT CHAPTER STARTS HERE.
+        </div>
+
+        <div class="login-decoration">
+            <div class="brand-content">
+                <h1>
+                    Your plan.<br>
+                    Your pace.<br>
+                    Your progress.
+                </h1>
+
+                <p>
+                    Set consistent goals, stay in your lane,
+                    and make every small step count.
+                </p>
+
+                <p class="small-text">
+                    BUILD YOUR ROUTINE. TRUST YOUR PROCESS.
+                </p>
+            </div>
+        </div>
+
+        <div class="brand-bottom">
+            SMALL STEPS. EVERY DAY.
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT PANEL -->
+    <div class="form-panel">
+
+        <div class="form-content">
+
+            <h2>Welcome back.</h2>
+
+            <p class="subtitle">
+                Your next good workout starts here.
+            </p>
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-group">
+                    <label>Email address/Username</label>
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Email/Username"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        required
+                    >
+                </div>
+
+                <div class="form-options">
+                    <label class="remember">
+                        <input type="checkbox" name="remember">
+                        Remember me
+                    </label>
+
+                    <a href="#">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="submit-btn">
+                    Log in
+                </button>
+
+            </form>
+
+            <p class="switch-page">
+                Don't have an account?
+                <a href="{% url 'register' %}">Create an account</a>
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
